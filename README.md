@@ -24,5 +24,5 @@ To run the React project, make sure that you're in the main folder of the projec
 For Mock API, open separate terminal
 
 ```
-1.`nom start-mock-server`
+1.`npm start-mock-server`
 ```
