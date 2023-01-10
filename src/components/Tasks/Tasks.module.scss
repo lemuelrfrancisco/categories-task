@@ -1,0 +1,30 @@
+.task {
+    display: flex;
+    align-items: center;
+
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 3px;
+    margin-bottom: 3px;
+    padding: 3px;
+    .status {
+        border: 1px solid black;
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        margin-right: 5px;
+
+        &.pass {
+            background-color: #ADFF2F;
+        }
+        &.fail {
+            background-color: #FF0000;
+        }
+        &.submit {
+            background-color: #87CEEB;
+        }
+        &.override {
+            background-color: #f6f217;
+        }
+    }
+}
