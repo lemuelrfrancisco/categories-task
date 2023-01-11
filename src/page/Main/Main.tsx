@@ -19,7 +19,10 @@ const cn = classnames.bind(styles);
 const Main = () => {
   const datas = useSelector((state: RootState) => state.datas);
 
-  const [tasksState, setTasksState] = useState<Tasks[]>([]);
+  const [htmlState, setHtmlState] = useState<Tasks[]>([]);
+  const [cssState, setCssState] = useState<Tasks[]>([]);
+  const [jsState, setJsState] = useState<Tasks[]>([]);
+
   const [statusState, setStatusState] = useState<Status[]>([]);
 
   const dispatch = useDispatch<any>();
@@ -30,16 +33,14 @@ const Main = () => {
   }, []);
 
   useEffect(() => {
-    setTasksState(datas.tasks || []);
-  }, [datas.tasks]);
+    setHtmlState(datas.html || []);
+    setCssState(datas.css || []);
+    setJsState(datas.js || []);
+  }, [datas.html, datas.css, datas.js]);
 
   useEffect(() => {
     setStatusState(datas.statuses || []);
   }, [datas.statuses]);
-
-  const displayList = (category: string) => {
-    return tasksState.filter((t) => t.category === category);
-  };
 
   const overrideStatusHandler = () => {
     dispatch(overrideStatus());
@@ -53,7 +54,7 @@ const Main = () => {
       <div className={cn("container")}>
         <div className={cn("task-container")}>
           <h3>HTML</h3>
-          {displayList("html").map((task: Tasks) => (
+          {htmlState.map((task: Tasks) => (
             <TasksItem
               key={task.id}
               task={task}
@@ -64,7 +65,7 @@ const Main = () => {
 
         <div className={cn("task-container")}>
           <h3>CSS</h3>
-          {displayList("css").map((task: Tasks) => (
+          {cssState.map((task: Tasks) => (
             <TasksItem
               key={task.id}
               task={task}
@@ -75,7 +76,7 @@ const Main = () => {
 
         <div className={cn("task-container")}>
           <h3>JS</h3>
-          {displayList("js").map((task: Tasks) => (
+          {jsState.map((task: Tasks) => (
             <TasksItem
               key={task.id}
               task={task}
