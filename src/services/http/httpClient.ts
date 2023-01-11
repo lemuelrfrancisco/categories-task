@@ -22,6 +22,6 @@ const initializeHttpClient = (baseUrl?: string) => {
 };
 
 export const httpClient = initializeHttpClient(
-  "http://localhost:3001/"
-  // "https://react-learning-server.onrender.com/"
+  // "http://localhost:3001/"
+  "https://react-learning-server.onrender.com/"
 );
